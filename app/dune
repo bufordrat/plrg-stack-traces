@@ -1,0 +1,13 @@
+(executable 
+ (public_name plrg_stack_traces) 
+ (name plrg_stack_traces)
+ (promote (until-clean))
+ (libraries camlp-streams prelude etude lib)) 
+
+(env
+ (dev
+  (flags (:standard -warn-error -A))))
+
+; Local Variables:
+; mode: dune
+; End:
