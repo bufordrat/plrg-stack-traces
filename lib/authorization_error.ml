@@ -1,4 +1,6 @@
 type t = [
   | `BadUsername of string
-  | `EmptyPassword
   ]
+
+let bad_username s = `BadUsername s
+
