@@ -1,5 +1,5 @@
 type t = [
   | `ConfigSyntax of int * string
-  | `BadProjectName of string
   ]
 
+let config_syntax no line = `ConfigSyntax (no, line)
