@@ -1,6 +1,9 @@
-open Authorization_error
+let sudoers =
+  [ "matt" ; "borja" ; "reppy" ]
 
 let connect username =
-  if username = "guest"
-  then Ok (Token.token "abcdef123")
-  else Error (bad_username username)
+  let open Prelude.String in
+  let open Prelude.Char in
+  if all (Alphabetic.is) username
+  then Ok (Token.token @@ username ^ "XXX")
+  else Error (`BadUsername username)

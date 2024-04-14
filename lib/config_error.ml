@@ -1,5 +1,3 @@
 type t = [
-  | `ConfigSyntax of int * string
+  | `FileNotFound of string
   ]
-
-let config_syntax no line = `ConfigSyntax (no, line)
