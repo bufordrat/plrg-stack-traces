@@ -4,8 +4,6 @@ let new_error err =
   let coerced = (err : Config_error.t :> Global_error.error)
   in Error [coerced]
 
-
-
 let read_config username filepath =
   let open R in
   let open Session in
@@ -14,4 +12,4 @@ let read_config username filepath =
   if filepath = "/etc/config"
   then Ok (CreateSession token)
   else assert false
-    (* new_error (`FilenotFound username) *)
+
