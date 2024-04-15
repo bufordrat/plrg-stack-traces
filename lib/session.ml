@@ -1,1 +1,3 @@
-type t = CreateSession of Token.t
+type token = Token of string
+
+type t = CreateSession of token
