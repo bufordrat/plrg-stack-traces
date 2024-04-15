@@ -1,3 +1,3 @@
 type t = [
-  | `NoPrivileges of string
+  | `WrongPrivileges of string
   ]

@@ -1,3 +1,3 @@
 type t = [
-  | `FileNotFound of string
+  | `ConfigProblem of string
   ]
