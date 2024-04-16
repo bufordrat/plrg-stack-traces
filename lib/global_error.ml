@@ -9,3 +9,14 @@ module E = struct
 end
 
 type t = E.t
+
+let with_error err x =
+  let coerced = (err : [< error] :> error)
+  in
+  match x with
+  | Ok _ -> x
+  | Error errs -> Error (coerced :: errs)
+
+let new_error err =
+  let coerced = (err : [< error] :> error)
+  in Error [coerced]
