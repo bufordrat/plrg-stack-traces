@@ -17,6 +17,8 @@ let with_error err x =
   | Ok _ -> x
   | Error errs -> Error (coerced :: errs)
 
-let new_error err =
+let new_list err =
   let coerced = (err : [< error] :> error)
-  in Error [coerced]
+  in [coerced]
+
+let new_error err = Error (new_list err)
