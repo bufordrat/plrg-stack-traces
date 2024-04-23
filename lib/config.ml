@@ -7,7 +7,7 @@ type t = { username : string
 let read_config username filepath =
   let open R in
   let open Authorization in
-  let open Global_error in
+  let open Global_error.T in
   let config =
     let* token = connect username in
     let message =
