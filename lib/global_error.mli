@@ -13,3 +13,6 @@ val new_list : [< error ] -> t
 
 val new_error :
   [< error ] -> ('a, t) result
+
+val expose :
+  ('a, t) result -> ('a, error list) result

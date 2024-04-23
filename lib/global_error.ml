@@ -22,3 +22,5 @@ let new_list err =
   in [coerced]
 
 let new_error err = Error (new_list err)
+
+let expose = Fun.id
