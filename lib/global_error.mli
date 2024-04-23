@@ -4,6 +4,10 @@ type error = [
   | Admin_error.t
   ]
 
+module E : sig
+  type t
+end
+
 type t
 
 val with_error :
