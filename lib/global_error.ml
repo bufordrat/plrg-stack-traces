@@ -4,11 +4,11 @@ type error = [
   | Admin_error.t
   ]
 
-module E = struct
+module ErrList = struct
   type t = error list
 end
 
-type t = E.t
+type t = ErrList.t
 
 module T = struct
   let with_error err x =
@@ -23,6 +23,18 @@ module T = struct
     in [coerced]
 
   let new_error err = Error (new_list err)
+end
+
+module Specialize (E : sig type t end) = struct
+  module type S = sig
+    val with_error : E.t ->
+                     ('a, error list) result ->
+                     ('a, error list) result
+
+    val new_list : E.t -> error list
+
+    val new_error : E.t -> ('a, error list) result  
+  end
 end
 
 let expose = Fun.id
