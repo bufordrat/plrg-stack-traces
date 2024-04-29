@@ -1,4 +1,6 @@
 module R = Etude.Result.Make (Global_error)
+module type S = Global_error.Specialize(Config_error).S
+module T : S = Global_error.T
 
 type t = { username : string
          ; token : Session.token
@@ -6,10 +8,9 @@ type t = { username : string
 
 let read_config username filepath =
   let open R in
-  let open Authorization in
-  let open Global_error.T in
+  let open T in
   let config =
-    let* token = connect username in
+    let* token = Authorization.connect username in
     let message =
       "this config was read in from: " ^ filepath
     in
