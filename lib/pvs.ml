@@ -1,20 +1,17 @@
-module ConfigError = struct
+module AuthorizationError = struct
   type t = [
-    | `ConfigSyntax of int * string
-    | `BadProjectName of string
+    | `WrongPrivileges 
     ]
 end
 
-module ValidationError = struct
+module AdminError = struct
   type t = [
     | `BadUsername of string
-    | `EmptyInput
     ]
 end
 
-module GlobalError = struct
+module ConfigError = struct
   type t = [
-    | ConfigError.t
-    | ValidationError.t
+    | `ConfigProblem 
     ]
 end
