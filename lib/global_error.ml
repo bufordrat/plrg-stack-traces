@@ -4,11 +4,7 @@ type error = [
   | Admin_error.t
   ]
 
-module ErrList = struct
-  type t = error list
-end
-
-type t = ErrList.t
+type t = error list
 
 module T = struct
   let with_error err x =
